@@ -25,16 +25,38 @@ header {
         font-size: 34px; }
   header nav .nav__list {
     padding-left: 0;
-    margin: 0; }
+    margin: 0;
+    font-size: 16px; }
     header nav .nav__list--item {
-      list-style-type: none; }
+      list-style-type: none;
+      padding: 5px 0; }
     header nav .nav__list--link {
       color: #262B2F;
       transition: 0.2s;
-      text-decoration: none; }
+      text-decoration: none;
+      font-weight: 900;
+      text-transform: uppercase;
+      position: relative; }
+      header nav .nav__list--link:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #2CD3A9;
+        visibility: hidden;
+        -webkit-transform: scaleX(0);
+        transform: scaleX(0);
+        -webkit-transition: all 0.3s ease-in-out 0s;
+        transition: all 0.3s ease-in-out 0s; }
       header nav .nav__list--link:hover, header nav .nav__list--link:focus {
         color: #2CD3A9;
-        text-decoration: underline; }
+        font-size: 18px; }
+        header nav .nav__list--link:hover:after, header nav .nav__list--link:focus:after {
+          visibility: visible;
+          -webkit-transform: scaleX(1);
+          transform: scaleX(1); }
 
 main {
   padding-top: 25px;
