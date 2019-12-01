@@ -1,4 +1,4 @@
-$primary: #262B2F;
+$primary: #4B4848;
 $primary-pink: #ED9582;
 $primary-blue: #004475;
 $primary-green: #204E4A; 
@@ -102,5 +102,28 @@ main {
 
 .wrapper {
     margin: 0 30px;
+}
+
+// SLICK SLIDER
+
+.hero-slider {
+    position: relative;
+}
+.slick-arrow {
+    text-decoration: none;
+    color: #fff;
+    font-size: 30px;
+    position: absolute;
+    z-index: 1;
+    top: 46%;
+
+    &.slick-next {
+        right: 0;
+        margin-right: 10px;
+    }
+
+    &.slick-prev {
+        margin-left: 10px;
+    }
 }
 
