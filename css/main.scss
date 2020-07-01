@@ -11,6 +11,7 @@ $primary-font: 'Roboto', sans-serif;
 $primary-font2: 'Bebas Neue', cursive;
 $breakpoint-tablet: 767px;
 $breakpoint-landscape: 1023px;
+$gutter: 12px;
 
 html, body {
     box-sizing: border-box;
@@ -410,4 +411,24 @@ main {
     }
     
 }
+
+
+//////////////////// ART PAGE ///////////////////////////
+
+.gallery {
+    &__wrapper {
+        display: flex;
+        flex-flow: row wrap;
+    }
+
+    &__item {
+        background-size: cover;
+        width: 32%;
+        height: 400px;
+        margin-right: $gutter;
+        margin-bottom: $gutter;
+    }
+}
+
+
 

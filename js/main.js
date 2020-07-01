@@ -64,6 +64,7 @@ $(document).ready(function(){
 
 });
 
+
 // function checkPage (loc) {
 //     let navItems = ['bio', 'actor', 'art', 'writing', 'film', 'fashion', 'contact'];
 
