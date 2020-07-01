@@ -23,265 +23,278 @@ html, body {
     box-sizing: border-box;
 }
 
-header {
+.link {
+    font-weight: 600;
+    border-bottom: 1px solid $primary-teal;
+    text-decoration: none;
+    color: $primary;
+    transition: 0.2s;
+
+    &:hover,
+    &:focus {
+        color: $secondary-teal;
+    }
+}
+
+.sub-heading {
+    margin-top: 0;
+    border-bottom: 1px solid $primary-teal;
+    display: inline;
+}
+
+.page-wrapper {
+    margin: 0 auto;
+    max-width:900px;
+}
+
+
     
-    // position: fixed;
+
+.header {
     position: relative;
     margin: 0 20px;
     padding-right: 16px;
     padding-top: 20px;
-    // left: 0;
-    // top: 0;
-    // height: 100vh;
-    // margin: 0 20px;
-    // padding-right: 16px;
-    // padding-top: 20px;
-    // border-right: 5px solid rgba(0, 0, 0, 0.07);
-    // overflow-y: scroll;
+    
+    
+    &__hamburger {
+        position: relative;
+        width:35px;
+        display: block;
 
-    @media screen and (min-width: $breakpoint-landscape) {
-        padding-top: 0;
+        @media screen and (min-width: $breakpoint-landscape) {
+            display: none;
+        }
+    
+        &--line {
+            margin: 9px 0;
+            height:3px;
+            width: 100%;
+            background-color: $primary;
+            // margin-bottom: 5px;
+
+            opacity: 1;
+            -webkit-transition: .25s ease-in-out;
+            -moz-transition: .25s ease-in-out;
+            transition: .25s ease-in-out;
+            transform-origin: left center;
+        }
+            
+            &.open div:nth-child(1) {
+            -webkit-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+            transform: rotate(45deg);
+            }
+            
+            &.open div:nth-child(2) {
+            width: 0%;
+            opacity: 0;
+            }
+            
+            &.open div:nth-child(3) {
+            -webkit-transform: rotate(-45deg);
+            -moz-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+            }
     }
 
+    &__wrapper {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        left: -200px;
+        transition: 0.5s;
+        z-index: 3;
+        opacity: 0;
 
-    .heading {
-        font-family: $cursive-font;
-        margin-top: 0;
-        
-        a {
-            color: $primary-teal;
-            text-decoration: none;
+        //maybe change z-index on landscape to 0 or normal;
+        @media screen and (min-width: $breakpoint-landscape) {
+            opacity: 1;
+            z-index: 3;
+            position: fixed;
+            left: 0;
+            height: 100%;
+            padding: 20px;
+            border-right: 5px solid rgba(0, 0, 0, 0.07);
+        }
+
+        &.active {
+            background: white;
+            left: -25px;
+            top: 120px;
+            // bottom: 40%;
+            
+            overflow-y: scroll;
+            width: 70vw;
+            z-index: 3;
+            padding-right: 35px;
+            opacity: 1;
+            display: block;
+
+
+            //on ipad need width to be 40vw;
+
+            @media screen and (min-width: $breakpoint-tablet) {
+                width: 40vw;
+            }
+
+            // on landcape need:
+            // margin: 0 20px;
+            // (but think i need border-right on <header> on landscape
+            // border-right: 5px solid rgba(0, 0, 0, 0.07);
+            @media screen and (min-width: $breakpoint-landscape) {
+                display: none;
+            }
+        }
+    }
+}
+
+.heading {
+    font-family: $cursive-font;
+    margin-top: 0;
+    
+    a {
+        color: $primary-teal;
+        text-decoration: none;
+        transition: 0.2s;
+        &:hover, 
+        &:focus {
+            color: $secondary-teal;
+        }
+    }
+
+    &--desktop {
+        display: none;
+
+        @media screen and (min-width: $breakpoint-landscape) {
+            display: block;
+        }
+
+    }
+
+    &--mobile {
+        display: block;
+
+        @media screen and (min-width: $breakpoint-landscape) {
+            display: none;
+        }
+    }
+}
+
+.nav {
+
+    &__list {
+        padding-left: 0;
+        margin: 0;
+        font-size: 16px;
+        position: relative;
+
+        &--item {
+            list-style-type: none;
+            padding: 5px 0;
+            text-align: right;
+        }
+
+        &--link {
+            color: $primary;
             transition: 0.2s;
+            text-decoration: none;
+            font-weight: 900;
+            text-transform: uppercase;
+            position: relative;
+
+            &:after {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                bottom: 0;
+                left: 0;
+                background-color: $secondary-teal;
+                visibility: hidden;
+                -webkit-transform: scaleX(0);
+                transform: scaleX(0);
+                -webkit-transition: all 0.3s ease-in-out 0s;
+                transition: all 0.3s ease-in-out 0s;
+            }
+
+            &.active {
+                color: $secondary-teal;
+            }
+            
+
             &:hover, 
+            &:focus {
+                color: $secondary-teal;
+                font-size: 18px;
+
+                &:after {
+                    visibility: visible;
+                    -webkit-transform: scaleX(1);
+                    transform: scaleX(1);
+                }
+            }
+        }
+    }
+}
+
+.nav-footer {
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+    justify-content: flex-end;
+    position: relative;
+
+    &__upper {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &__list {
+        display: flex;
+        flex-flow: row wrap;
+        padding-left: 0;
+        text-align: right;
+        width: 50%;
+        justify-content: space-between;
+
+        &--item {
+            list-style-type: none;
+            align-self: stretch;
+
+            a {
+                color: $primary-teal;
+            }
+        }
+    }
+
+    &__note {
+        font-size: 10px;
+        text-align: right;
+        text-transform: uppercase;
+
+        a {
+            color: $primary;
+            transition: 0.2s;
+            
+            &:hover,
             &:focus {
                 color: $secondary-teal;
             }
         }
-
-        &--desktop {
-            display: none;
-
-            @media screen and (min-width: $breakpoint-landscape) {
-                display: block;
-            }
-
-        }
-
-        &--mobile {
-            display: block;
-
-            @media screen and (min-width: $breakpoint-landscape) {
-                display: none;
-            }
-        }
     }
 
-    .header {
-
-
-        
-        
-        &__hamburger {
-            position: relative;
-            width:35px;
-            display: block;
-
-            @media screen and (min-width: $breakpoint-landscape) {
-                display: none;
-            }
-        
-            &--line {
-                margin: 9px 0;
-                height:3px;
-                width: 100%;
-                background-color: $primary;
-                // margin-bottom: 5px;
-
-                opacity: 1;
-                -webkit-transition: .25s ease-in-out;
-                -moz-transition: .25s ease-in-out;
-                transition: .25s ease-in-out;
-                transform-origin: left center;
-            }
-              
-              &.open div:nth-child(1) {
-                -webkit-transform: rotate(45deg);
-                -moz-transform: rotate(45deg);
-                transform: rotate(45deg);
-              }
-              
-              &.open div:nth-child(2) {
-                width: 0%;
-                opacity: 0;
-              }
-              
-              &.open div:nth-child(3) {
-                -webkit-transform: rotate(-45deg);
-                -moz-transform: rotate(-45deg);
-                transform: rotate(-45deg);
-              }
-        }
-
-        &__wrapper {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            position: absolute;
-            left: -200px;
-            transition: 0.5s;
-            z-index: 3;
-            opacity: 0;
-
-            //maybe change z-index on landscape to 0 or normal;
-            @media screen and (min-width: $breakpoint-landscape) {
-                opacity: 1;
-                z-index: 3;
-                position: fixed;
-                left: 0;
-                height: 100%;
-                padding: 20px;
-                border-right: 5px solid rgba(0, 0, 0, 0.07);
-            }
-
-            &.active {
-                background: white;
-                left: -25px;
-                top: 120px;
-                // bottom: 40%;
-                
-                overflow-y: scroll;
-                width: 70vw;
-                z-index: 3;
-                padding-right: 35px;
-                opacity: 1;
-                display: block;
-
-
-                //on ipad need width to be 40vw;
-
-                @media screen and (min-width: $breakpoint-tablet) {
-                    width: 40vw;
-                }
-
-                // on landcape need:
-                // margin: 0 20px;
-                // (but think i need border-right on <header> on landscape
-                // border-right: 5px solid rgba(0, 0, 0, 0.07);
-                @media screen and (min-width: $breakpoint-landscape) {
-                    display: none;
-                }
-            }
-        }
-    }
-
-    .nav {
-
-        &__list {
-            padding-left: 0;
-            margin: 0;
-            font-size: 16px;
-            position: relative;
-
-            &--item {
-                list-style-type: none;
-                padding: 5px 0;
-                text-align: right;
-            }
-
-            &--link {
-                color: $primary;
-                transition: 0.2s;
-                text-decoration: none;
-                font-weight: 900;
-                text-transform: uppercase;
-                position: relative;
-
-                &:after {
-                    content: "";
-                    position: absolute;
-                    width: 100%;
-                    height: 2px;
-                    bottom: 0;
-                    left: 0;
-                    background-color: $secondary-teal;
-                    visibility: hidden;
-                    -webkit-transform: scaleX(0);
-                    transform: scaleX(0);
-                    -webkit-transition: all 0.3s ease-in-out 0s;
-                    transition: all 0.3s ease-in-out 0s;
-                }
-                
-
-                &:hover, 
-                &:focus {
-                    color: $secondary-teal;
-                    font-size: 18px;
-
-                    &:after {
-                        visibility: visible;
-                        -webkit-transform: scaleX(1);
-                        transform: scaleX(1);
-                    }
-                }
-            }
-        }
-    }
-
-    .footer {
-        display: flex;
-        flex-direction: column;
-        height: 50%;
-        justify-content: flex-end;
-        position: relative;
-
-        &__upper {
-            display: flex;
-            justify-content: flex-end;
-        }
-
-        &__list {
-            display: flex;
-            flex-flow: row wrap;
-            padding-left: 0;
-            text-align: right;
-            width: 50%;
-            justify-content: space-between;
-
-            &--item {
-                list-style-type: none;
-                align-self: stretch;
-
-                a {
-                    color: $primary-teal;
-                }
-            }
-        }
-
-        &__note {
-            font-size: 10px;
-            text-align: right;
-            text-transform: uppercase;
-
-            a {
-                color: $primary;
-                transition: 0.2s;
-                
-                &:hover,
-                &:focus {
-                    color: $secondary-teal;
-                }
-            }
-        }
-        &:before {
-            content: "";
-            position: absolute;
-            bottom: 35%;
-            left: 0;
-            width: 100%;
-            border-bottom: 2px solid rgba(0, 0, 0, 0.07);
-        }
+    &:before {
+        content: "";
+        position: absolute;
+        bottom: 35%;
+        left: 0;
+        width: 100%;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.07);
     }
 }
+
 
 main {
     padding-top: 25px;
@@ -292,8 +305,6 @@ main {
         margin-left: 240px;
     }
 
-
-    
 
     &.nav-active {
         &::after {

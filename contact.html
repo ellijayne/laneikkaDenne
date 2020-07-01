@@ -12,9 +12,17 @@
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
-        <header>
-            <h1 class="heading"><a href="index.html">Laneikka Denne</a></h1>
-            <nav>
+      <header class="header">
+        <h1 class="heading heading--mobile"><a href="index.html">Laneikka Denne</a></h1>
+        <div class="header__hamburger">
+            <div class="header__hamburger--line"></div>
+            <div class="header__hamburger--line"></div>
+            <div class="header__hamburger--line"></div>
+        </div>
+
+        <div class="header__wrapper">
+            <h1 class="heading heading--desktop"><a href="index.html">Laneikka Denne</a></h1>
+            <nav class="nav">
                 <ul class="nav__list">
                     <li class="nav__list--item"><a class="nav__list--link" href="bio.html">Bio</a></li>
                     <li class="nav__list--item"><a class="nav__list--link" href="work.html">Actor</a></li>
@@ -22,10 +30,24 @@
                     <li class="nav__list--item"><a class="nav__list--link" href="work.html">Writing</a></li>
                     <li class="nav__list--item"><a class="nav__list--link" href="work.html">Film</a></li>
                     <li class="nav__list--item"><a class="nav__list--link" href="work.html">Fashion</a></li>
-                    <li class="nav__list--item"><a class="nav__list--link" href="contact.html">Contact</a></li>
+                    <li class="nav__list--item"><a class="nav__list--link active" href="contact.html">Contact</a></li>
                 </ul>
             </nav>
-        </header>
+            <footer class="nav-footer">
+                <div class="nav-footer__upper">
+                    <ul class="nav-footer__list">
+                        <li class="nav-footer__list--item"><a class="nav-footer__list--link" href="mailto:laneikkadenne@hotmail.com"><i class="far fa-envelope"></i></a></li>
+                        <li class="nav-footer__list--item"><a class="nav-footer__list--link" href="https://www.instagram.com/laneikka/"><i class="fab fa-instagram"></i></a></li>
+                        <li class="nav-footer__list--item"><a class="nav-footer__list--link" href="https://www.depop.com/laneikka/"><i class="fas fa-store"></i></a></li>
+                    </ul>
+                </div>
+                <div class="nav-footer__lower">
+                    <p class="nav-footer__note">© COPYRIGHT 2020 Laneikka Denne</p>
+                    <p class="nav-footer__note">Site by <a href="https://www.linkedin.com/in/ej-willard/">EJ Willard</a></p>
+                </div>
+            </footer>
+        </div>
+    </header>
         <main>
             <form method='post' name='contact_form' action='contact-form-handler.php'> 
                 Your Name: <input type='text' name='name'>
@@ -38,8 +60,8 @@
             </form>
         </main>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="js/slick.min.js"></script>
         <script src="js/main.js"></script>
-       
-
+        <script src="https://kit.fontawesome.com/9b6733193d.js" crossorigin="anonymous"></script>
     </body>
     </html>

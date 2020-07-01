@@ -1,4 +1,6 @@
 $(document).ready(function(){
+    // let currLoc = window.location.pathname;
+    // checkPage(currLoc)
 
     // $('.hero-carousel').slick({ 
 
@@ -61,3 +63,19 @@ $(document).ready(function(){
           
 
 });
+
+// function checkPage (loc) {
+//     let navItems = ['bio', 'actor', 'art', 'writing', 'film', 'fashion', 'contact'];
+
+//     let navItem = navItems.map((i) => {
+
+//         if (loc.includes(i)) {
+//             $this = i;
+//             console.log('this ', $this);
+//             $(`#${$this}`).addClass('active');
+//         }
+//         return;
+//     });
+// }
+
+// console.log('window.location.pathname ', window.location.pathname)
