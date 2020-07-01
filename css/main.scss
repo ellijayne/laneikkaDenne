@@ -39,6 +39,10 @@ header {
     // border-right: 5px solid rgba(0, 0, 0, 0.07);
     // overflow-y: scroll;
 
+    @media screen and (min-width: $breakpoint-landscape) {
+        padding-top: 0;
+    }
+
 
     .heading {
         font-family: $cursive-font;
@@ -53,12 +57,38 @@ header {
                 color: $secondary-teal;
             }
         }
+
+        &--desktop {
+            display: none;
+
+            @media screen and (min-width: $breakpoint-landscape) {
+                display: block;
+            }
+
+        }
+
+        &--mobile {
+            display: block;
+
+            @media screen and (min-width: $breakpoint-landscape) {
+                display: none;
+            }
+        }
     }
 
     .header {
+
+
+        
+        
         &__hamburger {
             position: relative;
             width:35px;
+            display: block;
+
+            @media screen and (min-width: $breakpoint-landscape) {
+                display: none;
+            }
         
             &--line {
                 margin: 9px 0;
@@ -103,9 +133,15 @@ header {
             opacity: 0;
 
             //maybe change z-index on landscape to 0 or normal;
-
-
-    
+            @media screen and (min-width: $breakpoint-landscape) {
+                opacity: 1;
+                z-index: 3;
+                position: fixed;
+                left: 0;
+                height: 100%;
+                padding: 20px;
+                border-right: 5px solid rgba(0, 0, 0, 0.07);
+            }
 
             &.active {
                 background: white;
@@ -118,6 +154,7 @@ header {
                 z-index: 3;
                 padding-right: 35px;
                 opacity: 1;
+                display: block;
 
 
                 //on ipad need width to be 40vw;
@@ -130,17 +167,14 @@ header {
                 // margin: 0 20px;
                 // (but think i need border-right on <header> on landscape
                 // border-right: 5px solid rgba(0, 0, 0, 0.07);
-
+                @media screen and (min-width: $breakpoint-landscape) {
+                    display: none;
+                }
             }
         }
     }
 
     .nav {
-        // flex-grow: 1;
-
-        // position: absolute;
-        // left: -75px;
-        // transition: 0.5s;
 
         &__list {
             padding-left: 0;
@@ -253,8 +287,13 @@ main {
     padding-top: 25px;
     position: relative;
     transition: 0.8s;
-    // on landscape add:
-    // margin-left: 240px;
+
+    @media screen and (min-width: $breakpoint-landscape) {
+        margin-left: 240px;
+    }
+
+
+    
 
     &.nav-active {
         &::after {
