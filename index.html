@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Laneikka Denne - Artist</title>
+    <title>Laneikka Denne - Actor/Artist</title>
+    <link rel="icon" href="images/l-logo.png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/slick.css">
     <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Beth+Ellen|Roboto:300,400,900|Yellowtail&display=swap" rel="stylesheet">    
@@ -12,14 +13,39 @@
 </head>
 <body>
     <header>
-        <h1 class="header"><a href="/index">Laneikka Denne</a></h1>
-        <nav>
-            <ul class="nav__list">
-                <li class="nav__list--item"><a class="nav__list--link" href="/works">Work</a></li>
-                <li class="nav__list--item"><a class="nav__list--link" href="/bio">Bio</a></li>
-                <li class="nav__list--item"><a class="nav__list--link" href="/contact">Contact</a></li>
-            </ul>
-        </nav>
+        <h1 class="heading"><a href="index.html">Laneikka Denne</a></h1>
+        <div class="header__hamburger">
+            <div class="header__hamburger--line"></div>
+            <div class="header__hamburger--line"></div>
+            <div class="header__hamburger--line"></div>
+        </div>
+
+        <div class="header__wrapper">
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__list--item"><a class="nav__list--link" href="bio.html">Bio</a></li>
+                    <li class="nav__list--item"><a class="nav__list--link" href="work.html">Actor</a></li>
+                    <li class="nav__list--item"><a class="nav__list--link" href="work.html">Art</a></li>
+                    <li class="nav__list--item"><a class="nav__list--link" href="work.html">Writing</a></li>
+                    <li class="nav__list--item"><a class="nav__list--link" href="work.html">Film</a></li>
+                    <li class="nav__list--item"><a class="nav__list--link" href="work.html">Fashion</a></li>
+                    <li class="nav__list--item"><a class="nav__list--link" href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <footer class="footer">
+                <div class="footer__upper">
+                    <ul class="footer__list">
+                        <li class="footer__list--item"><a class="footer__list--link" href="mailto:laneikkadenne@hotmail.com"><i class="far fa-envelope"></i></a></li>
+                        <li class="footer__list--item"><a class="footer__list--link" href="https://www.instagram.com/laneikka/"><i class="fab fa-instagram"></i></a></li>
+                        <li class="footer__list--item"><a class="footer__list--link" href="https://www.depop.com/laneikka/"><i class="fas fa-store"></i></a></li>
+                    </ul>
+                </div>
+                <div class="footer__lower">
+                    <p class="footer__note">© COPYRIGHT 2020 Laneikka Denne</p>
+                    <p class="footer__note">Site by <a href="https://www.linkedin.com/in/ej-willard/">EJ Willard</a></p>
+                </div>
+            </footer>
+        </div>
     </header>
     
 
@@ -29,11 +55,17 @@
             <section class="hero-slider">
 
                 <div class="hero-carousel">
-        
-                    <div><img src="https://picsum.photos/id/1014/1130/400" alt=""></div>
-                    <div><img src="https://picsum.photos/id/1060/1130/400" alt=""></div>
-                    <div><img src="https://picsum.photos/id/10/1130/400" alt=""></div>
-                    <div><img src="https://picsum.photos/id/1044/1130/400" alt=""></div>
+                    <div class="hero-carousel__item" style="background-image:url(images/bloom.jpg);"></div>
+                    <div class="hero-carousel__item" style="background-image:url(https://res.cloudinary.com/ellijayne/image/upload/v1591148223/laneikka-site/laneikka-pink.jpg);"></div>
+                    <div class="hero-carousel__item" style="background-image:url(images/poke.jpg);"></div>
+                    <div class="hero-carousel__item" style="background-image:url(images/fruitful.jpg);"></div>
+                    <div class="hero-carousel__item" style="background-image:url(images/ireallylikeher.jpg);"></div>
+                    <div class="hero-carousel__item" style="background-image:url(images/relaxing.jpg);"></div>
+                    <div class="hero-carousel__item" style="background-image:url(images/scrunch.jpg);"></div>
+                    <div class="hero-carousel__item" style="background-image:url(images/somethinginmyknickers.jpg);"></div>
+                    <div class="hero-carousel__item" style="background-image:url(images/tears.jpg);"></div>
+                    <div class="hero-carousel__item" style="background-image:url(images/valarie.jpg);"></div>
+                    
         
                 </div>
                                 
@@ -48,6 +80,7 @@
    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="js/slick.min.js"></script>
+    <script src="https://kit.fontawesome.com/9b6733193d.js" crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
