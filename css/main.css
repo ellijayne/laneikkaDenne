@@ -11,18 +11,18 @@ html, body {
 
 .link {
   font-weight: 600;
-  border-bottom: 1px solid #2D9378;
+  border-bottom: 1px solid #f2a580;
   text-decoration: none;
   color: #4B4848;
   transition: 0.2s;
 }
 .link:hover, .link:focus {
-  color: #2CD3A9;
+  color: #f6c3ab;
 }
 
 .sub-heading {
   margin-top: 0;
-  border-bottom: 1px solid #2D9378;
+  border-bottom: 1px solid #f2a580;
   display: inline;
 }
 
@@ -32,17 +32,23 @@ html, body {
 }
 
 .header {
-  position: relative;
-  margin: 0 20px;
+  position: fixed;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
   padding-right: 16px;
   padding-top: 20px;
+  padding-bottom: 20px;
+  width: 100%;
+  z-index: 10;
+  background-color: white;
 }
 .header__hamburger {
   position: relative;
   width: 35px;
-  display: block;
+  display: inline-block;
+  margin-left: 20px;
 }
-@media screen and (min-width: 1023px) {
+@media screen and (min-width: 1025px) {
   .header__hamburger {
     display: none;
   }
@@ -82,34 +88,32 @@ html, body {
   z-index: 3;
   opacity: 0;
 }
-@media screen and (min-width: 1023px) {
+@media screen and (min-width: 1025px) {
   .header__wrapper {
     opacity: 1;
     z-index: 3;
     position: fixed;
     left: 0;
-    height: 100%;
     padding: 20px;
     border-right: 5px solid rgba(0, 0, 0, 0.07);
   }
 }
 .header__wrapper.active {
   background: white;
-  left: -25px;
-  top: 120px;
+  left: 0px;
+  top: 72px;
   overflow-y: scroll;
-  width: 70vw;
+  width: 100vw;
   z-index: 3;
   padding-right: 35px;
   opacity: 1;
-  display: block;
 }
 @media screen and (min-width: 767px) {
   .header__wrapper.active {
     width: 40vw;
   }
 }
-@media screen and (min-width: 1023px) {
+@media screen and (min-width: 1025px) {
   .header__wrapper.active {
     display: none;
   }
@@ -120,25 +124,27 @@ html, body {
   margin-top: 0;
 }
 .heading a {
-  color: #2D9378;
+  color: #f2a580;
   text-decoration: none;
   transition: 0.2s;
 }
 .heading a:hover, .heading a:focus {
-  color: #2CD3A9;
+  color: #f6c3ab;
 }
 .heading--desktop {
   display: none;
 }
-@media screen and (min-width: 1023px) {
+@media screen and (min-width: 1025px) {
   .heading--desktop {
     display: block;
   }
 }
 .heading--mobile {
-  display: block;
+  display: inline;
+  position: absolute;
+  right: 20px;
 }
-@media screen and (min-width: 1023px) {
+@media screen and (min-width: 1025px) {
   .heading--mobile {
     display: none;
   }
@@ -170,7 +176,7 @@ html, body {
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #2CD3A9;
+  background-color: #f6c3ab;
   visibility: hidden;
   -webkit-transform: scaleX(0);
   transform: scaleX(0);
@@ -178,10 +184,10 @@ html, body {
   transition: all 0.3s ease-in-out 0s;
 }
 .nav__list--link.active {
-  color: #2CD3A9;
+  color: #f6c3ab;
 }
 .nav__list--link:hover, .nav__list--link:focus {
-  color: #2CD3A9;
+  color: #f6c3ab;
   font-size: 18px;
 }
 .nav__list--link:hover:after, .nav__list--link:focus:after {
@@ -214,7 +220,11 @@ html, body {
   align-self: stretch;
 }
 .nav-footer__list--item a {
-  color: #2D9378;
+  color: #f2a580;
+  transition: 0.2s;
+}
+.nav-footer__list--item a:hover {
+  color: #f6c3ab;
 }
 .nav-footer__note {
   font-size: 10px;
@@ -226,7 +236,7 @@ html, body {
   transition: 0.2s;
 }
 .nav-footer__note a:hover, .nav-footer__note a:focus {
-  color: #2CD3A9;
+  color: #f6c3ab;
 }
 .nav-footer:before {
   content: "";
@@ -242,7 +252,7 @@ main {
   position: relative;
   transition: 0.8s;
 }
-@media screen and (min-width: 1023px) {
+@media screen and (min-width: 1025px) {
   main {
     margin-left: 240px;
   }
@@ -261,6 +271,27 @@ main.nav-active::after {
   margin: 0 15px;
 }
 
+.hero-images {
+  display: none;
+}
+@media screen and (min-width: 1025px) {
+  .hero-images {
+    display: flex;
+    justify-content: center;
+  }
+}
+.hero-images__item {
+  width: 30%;
+}
+.hero-images__item > img {
+  max-width: 100%;
+}
+@media screen and (min-width: 1025px) {
+  .hero-images__item {
+    flex-flow: row nowrap;
+  }
+}
+
 .hero-carousel__item {
   background-repeat: no-repeat;
   background-size: cover;
@@ -270,6 +301,18 @@ main.nav-active::after {
 
 .hero-slider {
   position: relative;
+}
+@media screen and (min-width: 1025px) {
+  .hero-slider {
+    display: none;
+  }
+}
+
+.hero-carousel__item {
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 550px;
+  background-position: center;
 }
 
 .slick-arrow {
@@ -282,7 +325,7 @@ main.nav-active::after {
   transition: 0.2s;
 }
 .slick-arrow:hover, .slick-arrow:focus {
-  color: #2CD3A9;
+  color: #f6c3ab;
 }
 .slick-arrow.slick-next {
   right: 0;
@@ -310,12 +353,12 @@ main.nav-active::after {
   margin-right: 0;
 }
 .slick-dots > li.slick-active > button {
-  background: #2CD3A9;
+  background: #f6c3ab;
 }
 .slick-dots > li > button {
   font-size: 0;
   background-color: white;
-  border: 1px solid #2D9378;
+  border: 1px solid #f2a580;
   min-height: 20px;
   min-width: 20px;
   border-radius: 50%;
